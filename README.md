@@ -1,2 +1,1 @@
-# cursosolidity
-Curso de Solidity EY
+# Curso de Solidity EY
