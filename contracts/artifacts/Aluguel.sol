@@ -14,7 +14,7 @@ contract Aluguel {
     3 - 04/2020 = true
     */
     address payable public contaLocador;
-    address public owner;
+    address public contaLocatario;
 
     constructor(    string memory _nomeLocador, 
                     string memory _nomeLocatario, 
@@ -24,7 +24,7 @@ contract Aluguel {
         locatario = _nomeLocatario;
         valor = _valorDoAluguel;
         contaLocador = _contaLocador;
-        owner = msg.sender;
+        contaLocatario = msg.sender;
     }
  
     function valorAtualDoAluguel() public view returns (uint256) {
@@ -63,7 +63,7 @@ contract Aluguel {
     
     function receberPagamento() public payable {
         require(msg.value>=valor, "Valor insuficiente");
-        require(msg.sender == owner, "Somente o locatario pode efetuar o pagamento");
+        require(msg.sender == contaLocatario, "Somente o locatario pode efetuar o pagamento");
         contaLocador.transfer(msg.value);
         statusPagamento.push(true);
     }
