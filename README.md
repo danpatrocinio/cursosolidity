@@ -1,2 +1,2 @@
-# Curso de Solidity EY Set/23
------------------------------
+# Curso de Solidity EY
+----------------------
