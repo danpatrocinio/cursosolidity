@@ -52,7 +52,7 @@ contract ExercicioTcc {
 
     // c:
     function transfereCriptomoedaNativa(address _para, uint256 _valor) public payable {
-        require(saldoCriptomoedaNativa() <= _valor, "Saldo atual insuficiente");
+        require(saldoCriptomoedaNativa() >= _valor, "Saldo atual insuficiente");
         (bool ok, ) = _para.call{value: _valor}(abi.encodeWithSignature("takeMoney()"));
         require(ok, "transfer failed");
     }
